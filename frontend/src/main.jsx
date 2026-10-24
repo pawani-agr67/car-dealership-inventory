@@ -12,8 +12,11 @@ async function request(path, options={}, token){
   try { response = await fetch(`${API}/api${path}`, { ...options, headers:{'Content-Type':'application/json',...(token?{Authorization:`Bearer ${token}`}:{})}, body:options.body?JSON.stringify(options.body):undefined }) }
   catch { throw new Error('Cannot reach the API. Check that the backend is running.') }
   if(response.status===204)return null
-  const data=await response.json()
-  if(!response.ok)throw new Error(typeof data.detail==='string'?data.detail:'Please check your input and try again.')
+  const raw=await response.text()
+  let data
+  try { data=raw?JSON.parse(raw):null } catch { data=null }
+  if(!response.ok)throw new Error(typeof data?.detail==='string'?data.detail:response.status>=500?'The API is not responding. Check the backend terminal.':'Please check your input and try again.')
+  if(data===null)throw new Error('The API returned an empty response. Check the backend terminal.')
   return data
 }
 

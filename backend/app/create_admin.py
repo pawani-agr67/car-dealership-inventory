@@ -8,8 +8,8 @@ from app.main import db, hash_password, initialize
 def main():
     initialize()
     email = input("Admin email: ").strip().lower()
-    if "@" not in email:
-        raise SystemExit("Enter a valid email address")
+    if "@" not in email or "." not in email.split("@")[-1]:
+        raise SystemExit("Enter an email such as admin@motorhouse.local")
     password = getpass.getpass("Admin password (at least 8 characters): ")
     if len(password) < 8:
         raise SystemExit("Password must have at least 8 characters")
