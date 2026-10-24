@@ -34,3 +34,20 @@ def test_purchase_restock_and_validation(client, admin, buyer, vehicle):
     assert client.post(f"/api/vehicles/{vid}/restock", json={"quantity": 0}, headers=admin).status_code == 422
     assert client.post(f"/api/vehicles/{vid}/restock", json={"quantity": 3}, headers=admin).json()["quantity"] == 3
     assert client.post("/api/vehicles/9999/purchase", headers=buyer).status_code == 404
+
+
+def test_two_buyers_cannot_purchase_the_last_vehicle(client, admin, buyer, vehicle):
+    from concurrent.futures import ThreadPoolExecutor
+    vid = client.post("/api/vehicles", json={**vehicle, "quantity": 1}, headers=admin).json()["id"]
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        results = list(executor.map(lambda _: client.post(f"/api/vehicles/{vid}/purchase", headers=buyer).status_code, range(2)))
+    assert sorted(results) == [200, 409]
+    assert client.get("/api/vehicles", headers=buyer).json()[0]["quantity"] == 0
+
+
+def test_records_survive_a_new_connection(client, admin, vehicle):
+    from app.main import db
+    created = client.post("/api/vehicles", json=vehicle, headers=admin).json()
+    with db() as another_connection:
+        persisted = another_connection.execute("SELECT * FROM vehicles WHERE id = ?", (created["id"],)).fetchone()
+    assert persisted["make"] == "Toyota"

@@ -6,9 +6,9 @@ Date: 2026-10-24
 
 Command (from `backend`): `python -m pytest -q`
 
-Result: **3 passed, 1 third-party deprecation warning, 0 failures** (0.71 seconds).
+Result: **5 passed, 1 third-party deprecation warning, 0 failures** (1.03 seconds).
 
-Covered behavior: protected endpoints and invalid token; registration and duplicate account; valid and invalid login; role restrictions; vehicle creation, listing, update, deletion and missing ID; combined search filters and invalid price range; vehicle validation; purchase until sold out; forbidden and valid restock.
+Covered behavior: protected endpoints and invalid token; registration and duplicate account; valid and invalid login; role restrictions; vehicle creation, listing, update, deletion and missing ID; combined search filters and invalid price range; vehicle validation; purchase until sold out; forbidden and valid restock; two concurrent purchase attempts for the last vehicle; persistence across separate database connections.
 
 ## Frontend
 
