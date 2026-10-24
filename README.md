@@ -72,12 +72,11 @@ From `backend` run `python -m pytest -q`. From `frontend` run `npm run build`. S
 
 ## Screenshots
 
-The project does not contain a fabricated screenshot. To capture your **own final running application** for submission, log in as admin, add example vehicles, and save a full desktop screenshot as `screenshots/admin-dashboard.png`; then log in as a buyer and save `screenshots/buyer-dashboard.png`. Add those images to this section before publishing:
+The admin dashboard below shows four vehicles, search filters, an active inventory card, and a sold-out vehicle.
 
-```markdown
-![Admin dashboard](screenshots/admin-dashboard.png)
-![Buyer dashboard](screenshots/buyer-dashboard.png)
-```
+![Admin dashboard with vehicle inventory](screenshots/admin-dashboard.png)
+
+For a second screenshot, sign out and create a buyer account using the website's **Create account** button. Save the buyer inventory view as `screenshots/buyer-dashboard.png` and add it here with `![Buyer dashboard](screenshots/buyer-dashboard.png)` before publishing.
 
 ## My AI Usage
 

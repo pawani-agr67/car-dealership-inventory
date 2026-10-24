@@ -18,4 +18,4 @@ Result: **passed**. Vite v5.4.21 transformed 1,580 modules and emitted a product
 
 ## Limits
 
-Automated browser interaction and final application screenshots could not be completed in this workspace. The frontend build and API tests passed, but the owner should run the UI in their own browser, capture genuine screenshots, and check responsive behavior before submission.
+The owner ran the UI locally and provided a genuine admin inventory screenshot included in the README. Automated browser tests and a buyer-view screenshot are still pending. The frontend build and API tests passed.
