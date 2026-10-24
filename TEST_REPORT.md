@@ -18,4 +18,4 @@ Result: **passed**. Vite v5.4.21 transformed 1,580 modules and emitted a product
 
 ## Limits
 
-The owner ran the UI locally and provided a genuine admin inventory screenshot included in the README. Automated browser tests and a buyer-view screenshot are still pending. The frontend build and API tests passed.
+The owner ran the UI locally and provided genuine admin and buyer screenshots included in the README. The buyer screenshot shows a successful purchase and stock decremented to one. Automated browser tests are still pending. The frontend build and API tests passed.

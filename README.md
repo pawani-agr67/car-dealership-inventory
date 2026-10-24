@@ -76,7 +76,9 @@ The admin dashboard below shows four vehicles, search filters, an active invento
 
 ![Admin dashboard with vehicle inventory](screenshots/admin-dashboard.png)
 
-For a second screenshot, sign out and create a buyer account using the website's **Create account** button. Save the buyer inventory view as `screenshots/buyer-dashboard.png` and add it here with `![Buyer dashboard](screenshots/buyer-dashboard.png)` before publishing.
+The buyer view shows a Hyundai search and successful purchase, with stock reduced to one. Admin controls are absent.
+
+![Buyer dashboard after purchasing a Hyundai Creta](screenshots/buyer-dashboard.png)
 
 ## My AI Usage
 
